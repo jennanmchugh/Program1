@@ -7,13 +7,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Program1.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Program1.Controller">
    <children>
-      <VBox prefHeight="400.0" prefWidth="177.0" />
-      <ColorPicker fx:id="colorPicker" layoutX="10.0" layoutY="167.0" prefHeight="30.0" prefWidth="138.0" />
-      <Label layoutX="11.0" layoutY="146.0" prefHeight="17.0" prefWidth="138.0" text="Select a fill color:" />
+      <ColorPicker fx:id="colorPicker" layoutX="11.0" layoutY="280.0" prefHeight="30.0" prefWidth="138.0" />
+      <Label layoutX="11.0" layoutY="258.0" prefHeight="17.0" prefWidth="138.0" text="Select a fill color:" />
       <TextField layoutX="9.0" layoutY="17.0" prefHeight="17.0" prefWidth="49.0" fx:id="x1" />
       <Label layoutX="10.0" text="x1: " />
       <TextField fx:id="y1" layoutX="67.0" layoutY="17.0" prefHeight="27.0" prefWidth="59.0" />
@@ -26,14 +24,22 @@
       <Label layoutX="9.0" layoutY="98.0" text="x3:" />
       <TextField fx:id="y3" layoutX="68.0" layoutY="113.0" prefHeight="27.0" prefWidth="59.0" />
       <Label layoutX="69.0" layoutY="98.0" text="y3:" />
-      <ChoiceBox fx:id="fillAlgorithms" layoutX="10.0" layoutY="231.0" prefHeight="27.0" prefWidth="138.0" />
-      <Label layoutX="12.0" layoutY="208.0" text="Select a fill algorithm: " />
-      <Button fx:id="run" layoutX="13.0" layoutY="366.0" mnemonicParsing="false" onAction="#buttonSubmit" text="Run" />
-      <Canvas fx:id="canvas1" height="400.0" layoutX="185.0" width="416.0" />
-      <TextField fx:id="seedX" layoutX="9.0" layoutY="310.0" prefHeight="17.0" prefWidth="49.0" />
-      <TextField fx:id="seedY" layoutX="67.0" layoutY="310.0" prefHeight="17.0" prefWidth="59.0" />
-      <Label layoutX="13.0" layoutY="267.0" text="Select a seed point:" />
-      <Label layoutX="10.0" layoutY="294.0" text="x:" />
-      <Label layoutX="69.0" layoutY="294.0" text="y:" />
+      <ChoiceBox fx:id="fillAlgorithms" layoutX="11.0" layoutY="340.0" prefHeight="27.0" prefWidth="138.0" />
+      <Label layoutX="12.0" layoutY="320.0" text="Select a fill algorithm: " />
+      <Button fx:id="run" layoutX="13.0" layoutY="442.0" mnemonicParsing="false" onAction="#buttonSubmit" text="Run" />
+      <Canvas fx:id="canvas1" height="482.0" layoutX="185.0" width="487.0" />
+      <TextField fx:id="seedX" layoutX="10.0" layoutY="406.0" prefHeight="17.0" prefWidth="49.0" />
+      <TextField fx:id="seedY" layoutX="68.0" layoutY="406.0" prefHeight="17.0" prefWidth="59.0" />
+      <Label layoutX="11.0" layoutY="374.0" text="Select a seed point:" />
+      <Label layoutX="13.0" layoutY="392.0" text="x:" />
+      <Label layoutX="69.0" layoutY="390.0" text="y:" />
+      <TextField fx:id="x4" layoutX="10.0" layoutY="154.0" prefHeight="9.0" prefWidth="49.0" />
+      <TextField fx:id="y4" layoutX="68.0" layoutY="154.0" prefHeight="26.0" prefWidth="59.0" />
+      <TextField fx:id="x5" layoutX="10.0" layoutY="197.0" prefHeight="17.0" prefWidth="49.0" />
+      <TextField fx:id="y5" layoutX="68.0" layoutY="197.0" prefHeight="5.0" prefWidth="59.0" />
+      <Label layoutX="11.0" layoutY="139.0" text="x4:" />
+      <Label layoutX="69.0" layoutY="139.0" text="y4:" />
+      <Label layoutX="11.0" layoutY="180.0" text="x5:" />
+      <Label layoutX="71.0" layoutY="180.0" text="y5:" />
    </children>
 </AnchorPane>

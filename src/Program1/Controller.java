@@ -25,7 +25,7 @@ public class Controller implements Initializable{
     @FXML
     ChoiceBox fillAlgorithms;
     @FXML
-    TextField x1,x2,x3,y1,y2,y3, seedX, seedY;
+    TextField x1,x2,x3,x4,x5,y1,y2,y3,y4,y5,seedX, seedY;
     @FXML
     ColorPicker colorPicker;
     @FXML
@@ -101,6 +101,17 @@ public class Controller implements Initializable{
         int x3 = Integer.parseInt(this.x3.getText());
         int y3 = Integer.parseInt(this.y3.getText());
         points.add(new Point.Double(x3, y3));
+        if (!x4.getText().isEmpty() && !y4.getText().isEmpty()) {
+            int x4 = Integer.parseInt(this.x4.getText());
+            int y4 = Integer.parseInt(this.y4.getText());
+            points.add(new Point.Double(x4,y4));
+        }
+        if (!x5.getText().isEmpty() && !y5.getText().isEmpty()) {
+            int x5 = Integer.parseInt(this.x5.getText());
+            int y5 = Integer.parseInt(this.y5.getText());
+            points.add(new Point.Double(x5, y5));
+        }
+
         edges.add(new Edge(0, x1, y1, x2, y2));
         edges.add(new Edge(1, x2, y2, x3, y3));
         return points;
