@@ -22,24 +22,26 @@
       <Label layoutX="69.0" layoutY="50.0" text="y2:" />
       <TextField layoutX="9.0" layoutY="113.0" prefHeight="17.0" prefWidth="49.0" fx:id="x3" />
       <Label layoutX="9.0" layoutY="98.0" text="x3:" />
-      <TextField fx:id="y3" layoutX="68.0" layoutY="113.0" prefHeight="27.0" prefWidth="59.0" />
       <Label layoutX="69.0" layoutY="98.0" text="y3:" />
+      <TextField fx:id="y3" layoutX="68.0" layoutY="113.0" prefHeight="27.0" prefWidth="59.0" />
+      <Label layoutX="11.0" layoutY="139.0" text="x4:" />
+      <TextField layoutX="10.0" layoutY="154.0" prefHeight="9.0" prefWidth="49.0" fx:id="x4" />
+      <Label layoutX="69.0" layoutY="139.0" text="y4:" />
+      <TextField fx:id="y4" layoutX="68.0" layoutY="154.0" prefHeight="26.0" prefWidth="59.0" />
+      <Label layoutX="11.0" layoutY="180.0" text="x5:" />
+      <TextField layoutX="10.0" layoutY="197.0" prefHeight="17.0" prefWidth="49.0" fx:id="x5" />
+      <Label layoutX="71.0" layoutY="180.0" text="y5:" />
+      <TextField fx:id="y5" layoutX="68.0" layoutY="197.0" prefHeight="5.0" prefWidth="59.0" />
       <ChoiceBox fx:id="fillAlgorithms" layoutX="11.0" layoutY="340.0" prefHeight="27.0" prefWidth="138.0" />
       <Label layoutX="12.0" layoutY="320.0" text="Select a fill algorithm: " />
-      <Button fx:id="run" layoutX="13.0" layoutY="442.0" mnemonicParsing="false" onAction="#buttonSubmit" text="Run" />
+      <Button fx:id="run" layoutX="12.0" layoutY="442.0" mnemonicParsing="false" onAction="#runFill" text="Run Fill" />
       <Canvas fx:id="canvas1" height="482.0" layoutX="185.0" width="487.0" />
       <TextField fx:id="seedX" layoutX="10.0" layoutY="406.0" prefHeight="17.0" prefWidth="49.0" />
       <TextField fx:id="seedY" layoutX="68.0" layoutY="406.0" prefHeight="17.0" prefWidth="59.0" />
       <Label layoutX="11.0" layoutY="374.0" text="Select a seed point:" />
       <Label layoutX="13.0" layoutY="392.0" text="x:" />
       <Label layoutX="69.0" layoutY="390.0" text="y:" />
-      <TextField fx:id="x4" layoutX="10.0" layoutY="154.0" prefHeight="9.0" prefWidth="49.0" />
-      <TextField fx:id="y4" layoutX="68.0" layoutY="154.0" prefHeight="26.0" prefWidth="59.0" />
-      <TextField fx:id="x5" layoutX="10.0" layoutY="197.0" prefHeight="17.0" prefWidth="49.0" />
-      <TextField fx:id="y5" layoutX="68.0" layoutY="197.0" prefHeight="5.0" prefWidth="59.0" />
-      <Label layoutX="11.0" layoutY="139.0" text="x4:" />
-      <Label layoutX="69.0" layoutY="139.0" text="y4:" />
-      <Label layoutX="11.0" layoutY="180.0" text="x5:" />
-      <Label layoutX="71.0" layoutY="180.0" text="y5:" />
+      <Button layoutX="11.0" layoutY="228.0" mnemonicParsing="false" onAction="#drawPolygon" text="Draw Polygon" />
+      <!--<Button layoutX="85.0" layoutY="442.0" mnemonicParsing="false" text="Clear Fill" />-->
    </children>
 </AnchorPane>

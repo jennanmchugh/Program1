@@ -7,10 +7,6 @@ public class Edge {
     int x2;
     int y2;
 
-    public Edge() {
-
-    }
-
     public Edge(int edgeNumber, int x1, int y1, int x2, int y2) {
         this.edgeNumber = edgeNumber;
         this.x1 = x1;
