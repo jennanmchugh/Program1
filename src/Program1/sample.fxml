@@ -38,7 +38,7 @@
       <Canvas fx:id="canvas1" height="482.0" layoutX="185.0" width="487.0" />
       <TextField fx:id="seedX" layoutX="10.0" layoutY="406.0" prefHeight="17.0" prefWidth="49.0" />
       <TextField fx:id="seedY" layoutX="68.0" layoutY="406.0" prefHeight="17.0" prefWidth="59.0" />
-      <Label layoutX="11.0" layoutY="374.0" text="Select a seed point:" />
+      <Label layoutX="11.0" layoutY="374.0" text="Select a seed point:"/>
       <Label layoutX="13.0" layoutY="392.0" text="x:" />
       <Label layoutX="69.0" layoutY="390.0" text="y:" />
       <Button layoutX="11.0" layoutY="228.0" mnemonicParsing="false" onAction="#drawPolygon" text="Draw Polygon" />

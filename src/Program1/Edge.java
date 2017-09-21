@@ -6,6 +6,8 @@ public class Edge {
     int y1;
     int x2;
     int y2;
+    int maxY;
+    int minY;
 
     public Edge(int edgeNumber, int x1, int y1, int x2, int y2) {
         this.edgeNumber = edgeNumber;
@@ -15,4 +17,11 @@ public class Edge {
         this.y2 = y2;
     }
 
+    public void setMaxY(int maxY) {
+        this.maxY = maxY;
+    }
+
+    public void setMinY(int minY) {
+        this.minY = minY;
+    }
 }

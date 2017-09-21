@@ -2,7 +2,6 @@ package Program1;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -16,9 +15,9 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -37,7 +36,8 @@ public class Controller implements Initializable{
 
     private WritableImage image;
     private PixelWriter pixelWriter;
-    private List<Edge> edges = new ArrayList<>();
+    private List<Edge> edges;
+    private double[] yPoints;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,15 +67,6 @@ public class Controller implements Initializable{
         for (int i=0; i<yPoints.length; i++) {
             yPoints[i] = points.get(i).getY();
         }
-        //build edge list for use in polygon fill
-        for (int i=0;i<=points.size()-1; i++) {
-            if (i == points.size()-1) {
-                edges.add(new Edge(i, (int)points.get(i).x, (int)points.get(i).y, (int)points.get(0).x, (int)points.get(0).y));
-            }
-            else {
-                edges.add(new Edge(i, (int)points.get(i).x, (int)points.get(i).y, (int)points.get(i+1).x, (int)points.get(i+1).y));
-            }
-        }
         gc.strokePolygon(xPoints, yPoints, nPoints);
         image = canvas1.snapshot(null, null);
     }
@@ -100,7 +91,7 @@ public class Controller implements Initializable{
             floodFill8(seedX,seedY, visited, fillcolor,currentColor);
         }
         if (alg.equals("Polygon Fill")) {
-            polygonFill();
+            polygonFill(fillcolor);
         }
     }
 
@@ -160,31 +151,64 @@ public class Controller implements Initializable{
 
     }
 
-    private void polygonFill() {
-        List<Point> vertices = new ArrayList<>();
-        List yPoints = new ArrayList();
-        for (Edge e : edges) {
-            yPoints.add(e.y1);
-            yPoints.add(e.y2);
-            if (!vertices.contains(new Point(e.x1, e.y1))) {
-                vertices.add(new Point(e.x1, e.y1));
+    private void polygonFill(Color fillColor) {
+        List <Edge> activeEdges = edges;
+
+        //get the minY and maxY of polygon.
+        double minY = 0.0;
+        double maxY = 0.0;
+        for (int i=0; i<yPoints.length; i++) {
+            if (yPoints[i] > maxY) {
+                maxY = yPoints[i];
             }
-            if (!vertices.contains(new Point(e.x2, e.y2))) {
-                vertices.add(new Point(e.x2, e.y2));
-            }
-            int yMin = (int) yPoints.get(0);
-            int yMax = (int) yPoints.get(0);
-            for (int i = 0; i <yPoints.size()-1; i++) {
-                int current = (int)yPoints.get(i);
-                if (current > yMax) {
-                    yMax = current;
-                }
-                else if (current < yMin) {
-                    yMin = current;
-                }
+            if (yPoints[i] < minY) {
+                minY = yPoints[i];
             }
         }
 
-    }
+        //set minY and maxY of each edge
+        for (Edge e : edges) {
+            if (e.y1 > e.y2) {
+                e.setMaxY(e.y1);
+                e.setMinY(e.y2);
+            }
+            else if (e.y1 < e.y2) {
+                e.setMaxY(e.y2);
+                e.setMinY(e.y1);
+            }
+            else {
+                e.setMinY(e.y1);
+                e.setMaxY(e.y1);
+            }
+        }
+
+        //scan the entire height of polygon
+        for (int y=(int)minY; y<maxY; y++) {
+            while (!edges.isEmpty()) {
+                if (!activeEdges.isEmpty()) {
+                    //iterate through all edges of the polygon (determined when the polygon was drawn initially)
+                    for (Iterator<Edge> it = activeEdges.iterator(); it.hasNext(); ) {
+                        Edge e = it.next();
+                        if (e.maxY == y) {
+                            it.remove();
+                        }
+                    }
+                }
+
+                for (Iterator<Edge> it = edges.iterator(); it.hasNext(); ){
+                    Edge e = it.next();
+                    if (e.minY == y) {
+                        it.remove();
+                    }
+                }
+
+                for (Edge a : activeEdges) {
+                    for (int x=a.x1; x<a.x2; x++) {
+                        pixelWriter.setColor(x,y,fillColor);
+                    }
+                }
+            }
+        }
+     }
 
 }
